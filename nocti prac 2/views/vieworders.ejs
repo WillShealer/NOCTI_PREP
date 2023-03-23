@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Orders</title>
+</head>
+<body>
+    <table border="1">
+
+        <% for (order of orders) { %>
+            <tr>
+                <td colspan="7"> 
+                    <%= order.name %>
+                </td>  
+            </tr>
+            <tr>
+                <td colspan="7">
+                    <%= order.address %>
+                </td>  
+            </tr>
+            <tr>
+                <td>items</td>
+                <td>quanity</td>
+                <td>unit price</td>
+                <td>profit</td>
+                <td>retail price</td>
+                <td>subtotal</td>
+                <td>sales tax</td>
+            </tr>
+            <% for (item of order.items) { %>
+                <tr>
+                    <td><%=item.name%></td>
+                    <td><%=item.qty%></td>
+                    <td><%=item.unitPrice%></td>
+                    <td><%=item.profit%></td>
+                    <td><%=item.retailPrice%></td>
+                    <td><%=item.subtotal%></td>
+                    <td><%=item.salesTax%></td>
+                </tr>
+           <% } %>
+           <tr>
+            <td>shipping</td>
+            <td>profit</td>
+            <td>subtotal</td>
+            <td>sales tax</td>
+            <td colspan="3">total</td>
+
+
+           </tr>
+                <tr>
+                    <td><%=order.shipping%></td>
+                    <td><%=order.profit%></td>
+                    <td><%=order.retailPrice%></td>
+                    <td><%=order.subtotal%></td>
+                    <td><%=order.salesTax%></td>     
+                    <td><%=order.total%></td>     
+                </tr>
+        <% } %>
+
+    </table>
+</body>
+</html>
